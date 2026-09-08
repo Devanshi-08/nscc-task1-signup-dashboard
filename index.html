@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="NSCC SRM Technical Task 1 — Signup Form with Validation and Dashboard.">
+  <title>VaultSign — Signup & Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="background-glow glow-one"></div>
+  <div class="background-glow glow-two"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top" aria-label="VaultSign home">
+      <span class="brand-mark">V</span>
+      <span>Vault<span>Sign</span></span>
+    </a>
+    <div class="header-meta">
+      <span class="status-dot"></span>
+      <span>Local demo · No server required</span>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">NSCC · SRMIST · TECHNICAL TASK 01</p>
+        <h1>A small signup flow,<br><span>built properly.</span></h1>
+        <p class="hero-copy">Create an account, validate it in the browser, hash the password, and manage registered users from a clean dashboard.</p>
+      </div>
+      <div class="hero-badge" aria-hidden="true">
+        <div class="orb">✦</div>
+        <span>Client-side<br>identity vault</span>
+      </div>
+    </section>
+
+    <section class="stats" aria-label="Dashboard summary">
+      <article class="stat-card">
+        <span class="stat-label">Registered users</span>
+        <strong id="userCount">0</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Storage</span>
+        <strong>Local</strong>
+      </article>
+      <article class="stat-card">
+        <span class="stat-label">Password</span>
+        <strong>SHA-256</strong>
+      </article>
+    </section>
+
+    <section class="workspace">
+      <article class="panel signup-panel">
+        <div class="panel-heading">
+          <div>
+            <p class="section-kicker">01 / CREATE ACCOUNT</p>
+            <h2>Sign up</h2>
+          </div>
+          <span class="step-pill">Secure by default</span>
+        </div>
+
+        <form id="signupForm" novalidate>
+          <div class="field-group">
+            <label for="username">Username</label>
+            <div class="input-wrap">
+              <span class="input-icon">@</span>
+              <input id="username" name="username" type="text" autocomplete="username" placeholder="e.g. devanshi08" maxlength="30">
+            </div>
+            <small class="field-message" id="usernameMessage"></small>
+          </div>
+
+          <div class="field-group">
+            <label for="email">Email address</label>
+            <div class="input-wrap">
+              <span class="input-icon">✉</span>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com">
+            </div>
+            <small class="field-message" id="emailMessage"></small>
+          </div>
+
+          <div class="field-group">
+            <label for="password">Password</label>
+            <div class="input-wrap">
+              <span class="input-icon">⌑</span>
+              <input id="password" name="password" type="password" autocomplete="new-password" placeholder="At least 6 characters">
+              <button class="password-toggle" id="passwordToggle" type="button" aria-label="Show password">Show</button>
+            </div>
+            <div class="strength" aria-hidden="true"><span id="strengthBar"></span></div>
+            <small class="field-message" id="passwordMessage"></small>
+          </div>
+
+          <button class="primary-button" type="submit">
+            <span>Create account</span>
+            <span class="button-arrow">→</span>
+          </button>
+          <p class="privacy-note">Your password is hashed with the browser's Web Crypto API before it is stored in localStorage.</p>
+        </form>
+      </article>
+
+      <article class="panel dashboard-panel">
+        <div class="panel-heading dashboard-heading">
+          <div>
+            <p class="section-kicker">02 / USER DIRECTORY</p>
+            <h2>Dashboard</h2>
+          </div>
+          <button class="ghost-button" id="clearAllButton" type="button">Clear all</button>
+        </div>
+
+        <div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+        <div class="table-shell">
+          <table>
+            <thead>
+              <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password hash</th>
+                <th class="action-column">Action</th>
+              </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+          </table>
+          <div id="emptyState" class="empty-state">
+            <div class="empty-icon">⌁</div>
+            <h3>No accounts yet</h3>
+            <p>Create your first account using the signup form. It will appear here instantly.</p>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <footer>
+      <span>Built for NSCC SRM Technical Task 1</span>
+      <span>HTML · CSS · JavaScript · localStorage · Web Crypto API</span>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
