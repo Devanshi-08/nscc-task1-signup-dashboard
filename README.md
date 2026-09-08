@@ -329,6 +329,8 @@ If this were developed beyond the recruitment task, the next steps could include
 - Automated tests
 - Deployment with a real backend
 
+**Live Demo -** https://devanshi-08.github.io/nscc-task1-signup-dashboard/
+
 ---
 
 ## 👩‍💻 Author
